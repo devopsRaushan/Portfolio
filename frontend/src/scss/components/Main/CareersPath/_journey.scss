@@ -1,0 +1,163 @@
+$CareersPathProfileColor: #ff6b6b;
+$CareersPathProfileAchievementsIconColor: #8b7d7d;
+$CareersPathProfileAchievementsItemBackground: #aed1d199;
+$CareersPathProfileBgCircleStroke: #dddddd;
+$CareersPathProfileProgressBarStroke: #ff6b6b;
+$CareersPathProfileImageBackground: #ff6b6b;
+
+.Journey {
+    background-color: #aed1d1;
+
+    width: 100dvw;
+
+    &__domain {
+        &--profile {
+            // display: flex;
+        }
+    }
+}
+
+// Profile
+.Profile {
+    color: $CareersPathProfileColor;
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+
+    &--profile {
+        font-size: 1.5em;
+        padding: 5px;
+
+        .Profile-flex {
+            display: flex;
+            justify-content: space-between;
+
+            .Profile__info--container {
+                
+
+            }
+            //positioning issue
+            svg {
+                position: relative;
+                z-index: 1;
+                width: 22px;
+                height: 22px;
+                background-color: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(30px);
+                border: 0.1px solid #ffffff;
+                border-radius: 8px;
+            }
+
+            .Profile__info--icon {
+                font-size: 10px;
+                z-index: 2;
+                position: relative;
+                top: -20px;
+                right: -10px;
+            }
+
+        }
+    }
+
+    &--items {
+        display: flex;
+        row-gap: 2px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &.Achievements {
+            padding-bottom: 10px;
+            flex-direction: row;
+            justify-content: space-evenly;
+            font-size: 1.5em;
+
+            .Achievements__item {
+                background-color: $CareersPathProfileAchievementsItemBackground;
+                height: 35px;
+                width: 35px;
+                border-radius: 20px;
+                box-shadow: 1px 1px 2px #49434369;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 3px;
+
+                .Achievements__icon {
+                    color: $CareersPathProfileAchievementsIconColor;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+
+    // ProfileProgressImage
+    .Profile__progress {
+        position: relative;
+        height: 100px;
+        //center
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+
+        .Progress__circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            //center
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+
+
+            svg {
+                transform: rotate(-90deg);
+            }
+
+            .bg-circle {
+                fill: none;
+                stroke: $CareersPathProfileBgCircleStroke;
+                stroke-width: 8;
+            }
+
+            .progress-bar {
+                fill: none;
+                stroke: $CareersPathProfileProgressBarStroke;
+                stroke-width: 5;
+                stroke-dasharray: 159;
+                transition: stroke-dashoffset 0.5s ease-in-out;
+            }
+        }
+
+        .Profile-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $CareersPathProfileImageBackground;
+            padding: 5px;
+        }
+
+    }
+}
+
+// ProfileCards
+.ProfileCards {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    &--item {
+        background-color: red;
+        border: 1px solid;
+    }
+}

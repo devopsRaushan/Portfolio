@@ -1,0 +1,28 @@
+.flex__logo {
+    z-index: 100;
+    display: flex;
+    min-width: 100%;
+    align-items: center;
+    text-decoration: line-through;
+    text-decoration-color: #C4C4C4E6;
+    text-decoration-thickness: 1.5px;
+
+    .IconLogo {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 1.5rem;
+        border: 2px solid #ffffff;
+
+        .IconLogo_Logo {
+            display: flex;
+            justify-content: center;
+            height: 2.5rem;
+        }
+    }
+
+    .Logo_logo {
+        z-index: 10;
+        padding-left: 1rem;
+        .Logo_logo__Raushan--center {}
+    }
+}

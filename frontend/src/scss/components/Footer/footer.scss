@@ -1,0 +1,30 @@
+$Footer__backgroundColor: #849c8ada;
+
+.Footer {
+    margin-top: 6rem;
+    position: relative;
+    width: 100vw;
+    line-height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $Footer__backgroundColor;
+
+    &__socialMedia {
+        padding-top: 1rem;
+        display: flex;
+        width: 15rem;
+        justify-content: center;
+        justify-content: space-around;
+
+        &Handle {
+
+            &--icons {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+}

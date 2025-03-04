@@ -1,0 +1,12 @@
+.Head_header {
+    z-index: 1000;
+    background-color: #a3a3a3;
+    min-width: 100vw;
+    height: 5rem;
+    position: fixed;
+
+    &.flex {
+        display: flex;
+        padding: 0 .5rem;
+    }
+}

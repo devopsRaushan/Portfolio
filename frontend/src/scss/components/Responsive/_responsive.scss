@@ -1,0 +1,27 @@
+// mixin for width
+@mixin profile-styles($width: 50vw) {
+    .Profile {
+        width: $width;
+
+        .Profile__progress {
+            width: $width;
+
+            .Progress__circle {
+                width: $width;
+            }
+        }
+    }
+}
+
+// mixin for flex display
+@mixin flex-profile {
+    .Journey__domain--profile {
+        display: flex;
+    }
+}
+
+// medium and greater than
+@media (min-width: 768px) {
+    @include flex-profile();
+    @include profile-styles(50vw)
+}
