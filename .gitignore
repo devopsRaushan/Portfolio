@@ -10,7 +10,6 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -28,23 +27,6 @@ bin/
 obj/
 out/
 
-# Ignore user-specific files
-*.user
-*.vs
-.vscode/
-*.suo
-*.ncrunchsolution
-*.ncrunchproject
-*.cache
-*.config
-
-# Ignore temporary and log files
-*.log
-*.tlog
-*.cache/
-*.pdb
-*.mdb
-
 # Ignore package and dependency directories
 node_modules/
 packages/
@@ -52,18 +34,7 @@ packages/
 .idea/
 wwwroot/node_modules/
 
-# Ignore Docker-related files
-Dockerfile*
-docker-compose*
-
-# Ignore environment-specific files
-.env
-*.secrets.json
-
 # Ignore published output
 publish/
 dist/
 
-# Ignore system files
-Thumbs.db
-.DS_Store

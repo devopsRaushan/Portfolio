@@ -1,0 +1,65 @@
+services:
+  nginx:
+    image: nginx-v1:00.00
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx_container
+    volumes:
+      - frontend_build:/usr/share/nginx/html:ro  # React Build Serve
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+    networks:
+      - backendDb
+
+  frontend:
+    image: frontend-v1:00.00
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_container
+    volumes:
+      - frontend_build:/vite-build  # React build output stored in volume
+    environment:
+      - VITE_API_URL=http://backend:8080/api
+    networks:
+      - backendDb
+
+  mssql_db:
+    image: mssql-v1:00.00
+    build: ./mssql
+    container_name: mssql_container
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - backendDb
+
+  backend:
+    image: backend-v1:00.00
+    build: ./backend
+    container_name: backend_container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mssql_db
+    env_file:
+      - ./backend/.env
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=${DB_SERVER},${DB_PORT};Database=${DB_NAME};User Id=${DB_USER};Password=${DB_PASSWORD};TrustServerCertificate=True;"
+    networks:
+      - backendDb
+
+volumes:
+  sqlserver_data:
+  frontend_build:
+
+networks:
+  backendDb:
+    driver: bridge
