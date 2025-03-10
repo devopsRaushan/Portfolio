@@ -1,0 +1,15 @@
+@backend_HostAddress = http://localhost:5204
+
+POST {{backend_HostAddress}}/games/
+Content-Type: application/json
+
+{
+    "Name": "Halo Infinite II",
+    "Genre": "Shooter",
+    "Price": 59.99,
+    "ReleaseDate": "2021-12-08T00:00:00",
+    "ImageUri": "https://www.halo.com"
+}
+
+###
+GET {{backend_HostAddress}}/games/

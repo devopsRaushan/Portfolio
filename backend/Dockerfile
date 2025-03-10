@@ -1,22 +1,22 @@
-# Use official .NET SDK image for building the project
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+WORKDIR /app
+
 FROM mcr.microsoft.com/dotnet/sdk:latest AS build
+WORKDIR /src
+COPY ["*.csproj", "."]
+RUN dotnet restore "./backend.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "backend.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "backend.csproj" -c Release -o /app/publish
+
+FROM base AS final
 WORKDIR /app
-
-# Copy csproj and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
-
-# Copy everything and build the project
-COPY . ./
-RUN dotnet publish -c Release -o /published
-
-# Use ASP.NET runtime image for running the app
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
-WORKDIR /app
-COPY --from=build /published ./
+COPY --from=publish /app/publish .
+ENV ConnectionStrings__DefaultConnection="Server=mssql;Database=master;User Id=sa;Password=Srk@2508;"
+ENTRYPOINT ["dotnet", "backend.dll"]
 
 # Expose port 8080 for the app
 EXPOSE 8080
-
-# Run the application
-ENTRYPOINT ["dotnet", "backend.dll"]
