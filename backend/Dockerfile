@@ -15,7 +15,6 @@ RUN dotnet publish "backend.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV ConnectionStrings__DefaultConnection="Server=mssql;Database=master;User Id=sa;Password=Srk@2508;"
 ENTRYPOINT ["dotnet", "backend.dll"]
 
 # Expose port 8080 for the app

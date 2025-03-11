@@ -1,4 +1,6 @@
-@backend_HostAddress = http://localhost:5204
+# @backend_HostAddress = http://localhost:5204
+@backend_HostAddress = http://
+localhost:8080
 
 POST {{backend_HostAddress}}/games/
 Content-Type: application/json
@@ -8,7 +10,7 @@ Content-Type: application/json
     "Genre": "Shooter",
     "Price": 59.99,
     "ReleaseDate": "2021-12-08T00:00:00",
-    "ImageUri": "https://www.halo.com"
+    "ImageUri": "https://wwww.halo.com"
 }
 
 ###

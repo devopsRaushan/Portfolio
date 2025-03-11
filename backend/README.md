@@ -9,10 +9,10 @@ dotnet user-secrets init
 
 ```powershell
 # To set the environment variable into your terminal
-$sa_password = "Srk@629905"
+$sa_password = "Srk@2508"
 
 # Copy the name of your connection using appsettings.json
-dotnet user-secrets set "ConnectionStrings:GameStoreContext" "Server=localhost;Database=master;User Id=sa;Password=$sa_password;TrustServerCertificate=True"
+dotnet user-secrets set "ConnectionStrings:GameStoreContext" "Server=localhost;Database=backend;User Id=sa;Password=$sa_password;TrustServerCertificate=True"
 
 # To check the secrets in your project
 dotnet user-secrets list
