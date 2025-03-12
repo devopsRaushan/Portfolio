@@ -12,12 +12,4 @@ RUN npm run build
 
 # Use volume to persist build files
 VOLUME /vite-build
-CMD [ "sh", "-c", "cp -r /app/dist /vite-build" ]
-
-# Serve Static Files
-FROM nginx:latest
-WORKDIR /usr/share/nginx/html
-COPY --from=build /app/dist /vite-build
-# chatgpt
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "sh", "-c", "cp -r /app/dist/* /vite-build" ]
