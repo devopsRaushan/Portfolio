@@ -1,6 +1,5 @@
 # @backend_HostAddress = http://localhost:5204
-@backend_HostAddress = http://
-localhost:8080
+@backend_HostAddress = http://localhost:8080
 
 POST {{backend_HostAddress}}/games/
 Content-Type: application/json

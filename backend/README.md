@@ -1,3 +1,20 @@
+## Adding migrations before interacting with database
+
+### Convert your CSharp into T-SQL by generating migrations
+
+```powershell
+dotnet ef migrations add InitialCreate --output-dir Data\Migrations
+```
+
+### Now keep your database ready to interact with and then update your databse with yours migration
+<strong>NOTE:</strong> In this project we're using 'MigrateAsync' method which is implemented in the 'InitializeDbAsync' method to create migrations and update database automatically when we make changes in our database 
+
+```powershell
+dotnet ef databse update
+```
+
+
+
 ## Dotnet Secret manager
 ### Initialize your secret manager by running this following command in your root directory
 
