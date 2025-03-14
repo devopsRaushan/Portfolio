@@ -2,27 +2,48 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backend.DTO;
 
-public record GameDto(
+public record ProfileDto(
     int Id,
-    string Name,
-    string Genre,
-    decimal Price,
-    DateTime ReleaseDate,
-    string ImageUri
+    string Description,
+    string SkillsHave,
+    string SoftwaresUsed,
+    string JobRole,
+    string RoleResponsibility,
+    string OfficeVenue,
+    string MasteryLevel,
+    decimal WorkingExperience,
+    DateOnly JoinedDate,
+    string CompanyName,
+    string Projects,
+    string ProjectReference
 );
 
-public record CreateGameDto(
-    [Required][StringLength(100)]string Name,
-    [Required][StringLength(20)]string Genre,
-    [Range(1, 100)]decimal Price,
-    DateTime ReleaseDate,
-    [Url][StringLength(100)]string ImageUri
+public record CreateProfileDto(
+    [Required][StringLength(100)] string Description,
+    [Required][StringLength(200)] string SkillsHave,
+    [Required][StringLength(100)] string SoftwaresUsed,
+    [Required][StringLength(50)] string JobRole,
+    [Required][StringLength(100)] string RoleResponsibility,
+    [Required][StringLength(100)] string OfficeVenue,
+    [Required][StringLength(20)] string MasteryLevel,
+    [Range(0, 50)] decimal WorkingExperience,
+    DateOnly JoinedDate,
+    [Required][StringLength(30)] string CompanyName,
+    [Required][StringLength(200)] string Projects,
+    [Url][StringLength(100)] string ProjectReference
 );
 
-public record UpdateGameDto(
-    [Required][StringLength(100)]string Name,
-    [Required][StringLength(20)]string Genre,
-    [Range(1, 100)]decimal Price,
-    DateTime ReleaseDate,
-    [Url][StringLength(100)]string ImageUri
+public record UpdateProfileDto(
+    [Required][StringLength(100)] string Description,
+    [Required][StringLength(200)] string SkillsHave,
+    [Required][StringLength(100)] string SoftwaresUsed,
+    [Required][StringLength(50)] string JobRole,
+    [Required][StringLength(100)] string RoleResponsibility,
+    [Required][StringLength(100)] string OfficeVenue,
+    [Required][StringLength(20)] string MasteryLevel,
+    [Range(0, 50)] decimal WorkingExperience,
+    DateOnly JoinedDate,
+    [Required][StringLength(30)] string CompanyName,
+    [Required][StringLength(200)] string Projects,
+    [Url][StringLength(100)] string ProjectReference
 );

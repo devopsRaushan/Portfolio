@@ -1,33 +1,33 @@
 services:
-  # nginx:
-  #   image: nginx-v1:00.00
-  #   build:
-  #     context: ./nginx
-  #     dockerfile: Dockerfile
-  #   container_name: nginx_container
-  #   volumes:
-  #     - frontend_build:/usr/share/nginx/html:ro  # React Build Serve
-  #   ports:
-  #     - "80:80"
-  #   networks:
-  #     - backendDb
-  #   depends_on:
-  #     - backend
+  nginx:
+    image: nginx-v1:00.00
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx_container
+    volumes:
+      - frontend_build:/usr/share/nginx/html:ro  # React Build Serve
+    ports:
+      - "80:80"
+    networks:
+      - backendDb
+    depends_on:
+      - backend
 
-  # frontend:
-  #   image: frontend-v1:00.00
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   container_name: frontend_container
-  #   volumes:
-  #     - frontend_build:/vite-build  # React build output stored in volume
-  #   environment:
-  #     - VITE_API_URL=http://backend:8080/api
-  #   networks:
-  #     - backendDb
-  #   depends_on:
-  #     - nginx
+  frontend:
+    image: frontend-v1:00.00
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_container
+    volumes:
+      - frontend_build:/vite-build  # React build output stored in volume
+    environment:
+      - VITE_API_URL=http://backend:8080/api
+    networks:
+      - backendDb
+    depends_on:
+      - nginx
 
   mssql_db:
     image: mssql-v1:00.00
@@ -46,9 +46,9 @@ services:
       - backendDb
     healthcheck:
       test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -C -Q 'SELECT 1'"]
-      interval: 100s
-      timeout: 20s
-      retries: 2
+      interval: 60s
+      timeout: 30s
+      retries: 5
 
   backend:
     image: backend-v1:00.00
@@ -59,7 +59,7 @@ services:
     env_file:
       - ./.env
     environment:
-      - ConnectionStrings__GameStoreContext=Server=mssql_db,1433;Database=backend;User Id=sa;Password=Srk@2508;TrustServerCertificate=True;Encrypt=False;
+      - ConnectionStrings__GameProfileContext=Server=mssql_db,1433;Database=profile;User Id=sa;Password=Srk@2508;TrustServerCertificate=True;Encrypt=False;
     depends_on:
       mssql_db:
         condition: service_healthy

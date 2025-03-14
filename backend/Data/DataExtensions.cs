@@ -8,13 +8,13 @@ public static class DataExtensions
     public static async Task InitializeDbAsync(this IServiceProvider serviceProvider)
     {
         using var scope = serviceProvider.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<GameStoreContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ProfileContext>();
         await dbContext.Database.MigrateAsync();
     }
 
     /// <summary>
     /// Dependency Injection
-    /// Adding the implementation <see cref="InMemGamesRepository"/> of that class which gets injected by their dependency <see cref="IMemGamesRepository"/>, and register that implemented concrete class to the IServiceProvide which resolve and contruct the inject <see cref="InMemGamesRepository"/> the implementation as requested
+    /// Adding the implementation <see cref="InMemGamesRepository"/> of that class which gets injected by their dependency <see cref="IProfilesRepository"/>, and register that implemented concrete class to the IServiceProvide which resolve and contruct the inject <see cref="InMemGamesRepository"/> the implementation as requested
     /// </summary>
     public static IServiceCollection AddRepositories(
         this IServiceCollection services,
@@ -22,9 +22,9 @@ public static class DataExtensions
     )
     {
         // Getting the connection string from the appsettings.json file which is tranferred into secrets manager later
-        var connectionString = configuration.GetConnectionString("GameStoreContext");
-        services.AddSqlServer<GameStoreContext>(connectionString)
-            .AddScoped<IMemGamesRepository, EntityFrameworkGamesRepository>(); // dependecy injection
+        var connectionString = configuration.GetConnectionString("GameProfileContext");
+        services.AddSqlServer<ProfileContext>(connectionString)
+            .AddScoped<IProfilesRepository, ProfilesRepository>(); // dependecy injection
 
         return services;
     }

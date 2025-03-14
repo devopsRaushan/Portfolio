@@ -4,16 +4,23 @@ namespace backend.Entities;
 
 public static class EntityExtensions
 {
-    public static GameDto AsDto(this Game game)
+    public static ProfileDto AsDto(this Profile profile)
     {
-        return new GameDto
+        return new ProfileDto
         (
-            game.Id,
-            game.Name,
-            game.Genre,
-            game.Price,
-            game.ReleaseDate,
-            game.ImageUri
+            profile.Id,
+            profile.Description,
+            profile.SkillsHave,
+            profile.SoftwaresUsed,
+            profile.JobRole,
+            profile.RoleResponsibility,
+            profile.OfficeVenue,
+            profile.MasteryLevel,
+            profile.WorkingExperience,
+            profile.JoinedDate,
+            profile.CompanyName,
+            profile.Projects,
+            profile.ProjectReference
         );
     }
 }

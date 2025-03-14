@@ -10,7 +10,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173")
+            policy.WithOrigins("http://localhost:80")
                   .AllowAnyMethod()
                   .AllowAnyHeader();
         });
@@ -21,6 +21,6 @@ app.UseCors("AllowFrontend");
 // applying migrations on startup using DataExtension
 await app.Services.InitializeDbAsync();
 
-app.MapGamesEndpoints();
+app.MapProfileEndpoints();
 
 app.Run();

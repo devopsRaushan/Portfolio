@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Data;
 
-public class GameStoreContext : DbContext
+public class ProfileContext : DbContext
 {
-    public GameStoreContext(DbContextOptions<GameStoreContext> options)
+    public ProfileContext(DbContextOptions<ProfileContext> options)
         : base(options)
     {
     }
 
-    public DbSet<Game> Games => Set<Game>();
+    public DbSet<Profile> Profiles => Set<Profile>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
