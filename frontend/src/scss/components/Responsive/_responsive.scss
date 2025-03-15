@@ -23,5 +23,9 @@
 // medium and greater than
 @media (min-width: 768px) {
     @include flex-profile();
-    @include profile-styles(50vw)
+    @include profile-styles(50vw); 
+    
+    .ProfileCards {
+        grid-template-columns: repeat(2, auto);
+    }
 }

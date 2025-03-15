@@ -154,7 +154,7 @@ $CareersPathProfileImageBackground: #ff6b6b;
 .ProfileCards {
     width: 100vw;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(1, auto);
 
     &--item {
         background-color: red;

@@ -1,15 +1,17 @@
-import FetchTest from "./FetchTest";
-import Postcards from "./Postcards";
+import React from 'react';
+import GetProfile from "../../ProfileRoute/GetProfile";
+
 function ProfileCards() {
   return (
     <div className="ProfileCards">
-        <div className="ProfileCards--item">
-          <FetchTest />
-        </div>
-        <div className="ProfileCards--item">
-          <Postcards />
-        </div>
+      <div className="ProfileCards--item">
+        <GetProfile id="5" />
+      </div>
+      <div className="ProfileCards--item">
+        <GetProfile id="8" />
+      </div>
     </div>
   );
 }
+
 export default ProfileCards;

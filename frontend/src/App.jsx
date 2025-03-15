@@ -1,35 +1,26 @@
-import React, { Suspense } from "react";
 import Navbar from "./components/Header/Navbar/Navbar";
+import Main_2 from "./components/Main-2/Main";
+import Main from "./components/Main/CareersPath/Main";
+import Footer from "./components/Footer/Footer";
+// Routing
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import PostProfile from "./components/ProfileRoute/PostProfile";
+import ProfileManagement from "./components/ProfileRoute/ProfileManagement";
+import UpdateProfile from "./components/ProfileRoute/UpdateProfile";
 
-import { useDelayRender } from "./Hooks/delayRender";
-
-// Lazy loading components
-const Main_2 = React.lazy(() => import("./components/Main-2/Main"));
-const Main = React.lazy(() => import("./components/Main/CareersPath/Main"));
-const Footer = React.lazy(() => import("./components/Footer/Footer"));
-
-function App() {
-  const delayRender = useDelayRender(200);
+function App()
+{
 
   return (
     <>
-      <header className="Head_header">
-        <Navbar />
-      </header>
-      {/* Wrap your lazy-loaded components into Suspense to render it */}
-      {delayRender && (
-        <Suspense>
-          <div className="Main_container" style={{ height: "100vh" }}>
-            <Main />
-            <main className="Main_Qualification_skillSet">
-              <Main_2 />
-            </main>
-          </div>
-        </Suspense>
-      )}
-      <footer className="Footer">
-        <Footer />
-      </footer>
+      <Router>
+        <Routes>
+          <Route path="/" element={<><header className="Head_header"><Navbar /></header><div className="Main_container" style={{ height: "100vh" }}><Main /><main className="Main_Qualification_skillSet"><Main_2 /></main></div><footer className="Footer"><Footer /></footer></>} />
+          <Route path="/post" element={<PostProfile />} />
+          <Route path="/delete" element={<ProfileManagement userId="1" />} />
+          <Route path="/update/:id" element={<UpdateProfile />} />
+        </Routes>
+      </Router>
     </>
   );
 }

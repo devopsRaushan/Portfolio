@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
+import postData from '../../utils/postData';
 
-const AddGameForm = () => {
-  const backendApi = "/api";
-  // const backendApi = "http://localhost:8080";
+const PostProfile = () => {
+//   const backendApi = "/api";
+  const backendApi = "http://localhost:8080";
   const backendData = {
     Description: "",
     SkillsHave: "",
@@ -28,18 +28,7 @@ const AddGameForm = () => {
   // Handling form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents page reload
-
-    try {
-      const response = await axios.post(`${backendApi}/profiles`, formData);
-      console.log("Data saved successfully:", response.data);
-      alert("Data added successfully!");
-
-      // Reset form after submission
-      setFormData(backendData);
-    } catch (error) {
-      console.error("Error saving data:", error);
-      alert("Error adding data.");
-    }
+    await postData(`${backendApi}/profiles`, formData, backendData, setFormData);
   };
 
   const renderInput = (name, type, placeholder) => (
@@ -75,4 +64,4 @@ const AddGameForm = () => {
   );
 };
 
-export default AddGameForm;
+export default PostProfile;

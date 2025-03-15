@@ -1,33 +1,33 @@
 services:
-  nginx:
-    image: nginx-v1:00.00
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    container_name: nginx_container
-    volumes:
-      - frontend_build:/usr/share/nginx/html:ro  # React Build Serve
-    ports:
-      - "80:80"
-    networks:
-      - backendDb
-    depends_on:
-      - backend
+  # nginx:
+  #   image: nginx-v1:00.00
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: Dockerfile
+  #   container_name: nginx_container
+  #   volumes:
+  #     - frontend_build:/usr/share/nginx/html:ro  # React Build Serve
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - backendDb
+  #   depends_on:
+  #     - backend
 
-  frontend:
-    image: frontend-v1:00.00
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: frontend_container
-    volumes:
-      - frontend_build:/vite-build  # React build output stored in volume
-    environment:
-      - VITE_API_URL=http://backend:8080/api
-    networks:
-      - backendDb
-    depends_on:
-      - nginx
+  # frontend:
+  #   image: frontend-v1:00.00
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: frontend_container
+  #   volumes:
+  #     - frontend_build:/vite-build  # React build output stored in volume
+  #   environment:
+  #     - VITE_API_URL=http://backend:8080/api
+  #   networks:
+  #     - backendDb
+  #   depends_on:
+  #     - nginx
 
   mssql_db:
     image: mssql-v1:00.00

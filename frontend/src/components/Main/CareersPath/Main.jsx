@@ -1,9 +1,9 @@
-import Journey from "./Journey";
+import ProfileJourney from "./ProfileJourney";
 
 function Main() {
   return (
     <>
-      <Journey />
+      <ProfileJourney />
     </>
   );
 }
