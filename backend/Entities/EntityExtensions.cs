@@ -16,10 +16,16 @@ public static class EntityExtensions
             profile.RoleResponsibility,
             profile.OfficeVenue,
             profile.MasteryLevel,
-            profile.WorkingExperience,
+            profile.WorkingYearsExperience,
             profile.JoinedDate,
             profile.CompanyName,
-            profile.Projects,
+            profile.ProjectsAccomplished,
+            profile.SeniorGuidance,
+            profile.ProblemSolvingFocus,
+            profile.TestingDebuggingSkills,
+            profile.ContinuousUpskilling,
+            profile.EmployeeWelfareExperience,
+            profile.WorkEnvironmentRating,
             profile.ProjectReference
         );
     }

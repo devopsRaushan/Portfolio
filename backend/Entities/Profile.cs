@@ -34,7 +34,7 @@ public class Profile
     public required string MasteryLevel { get; set; }
 
     [Range(0, 50)]
-    public decimal WorkingExperience { get; set; }
+    public decimal WorkingYearsExperience { get; set; }
     public DateOnly JoinedDate { get; set; }
 
     [Required]
@@ -42,10 +42,32 @@ public class Profile
     public required string CompanyName { get; set; }
 
     [Required]
+    public required int ProjectsAccomplished { get; set; }
+
+    [Required]
+    [StringLength(50)]
+    public required string SeniorGuidance {get; set; }
+    
+    [Required]
+    [StringLength(50)]
+    public required string ProblemSolvingFocus {get; set; }
+
+    [Required]
+    [StringLength(50)]
+    public required string TestingDebuggingSkills {get; set; }
+
+    [Required]
+    [StringLength(50)]
+    public required string ContinuousUpskilling {get; set; }
+
+    [Required]
     [StringLength(200)]
-    public required string Projects { get; set; }
+    public required string EmployeeWelfareExperience {get; set; }
+
+    [Required]
+    public required int WorkEnvironmentRating {get; set; }    
 
     [Url]
     [StringLength(100)]
-    public required string ProjectReference { get; set; }
+    public string ProjectReference { get; set; }
 }

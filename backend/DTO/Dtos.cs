@@ -11,10 +11,16 @@ public record ProfileDto(
     string RoleResponsibility,
     string OfficeVenue,
     string MasteryLevel,
-    decimal WorkingExperience,
+    decimal WorkingYearsExperience,
     DateOnly JoinedDate,
     string CompanyName,
-    string Projects,
+    int ProjectsAccomplished,
+    string SeniorGuidance,
+    string ProblemSolvingFocus,
+    string TestingDebuggingSkills,
+    string ContinuousUpskilling,
+    string EmployeeWelfareExperience,
+    int WorkEnvironmentRating,
     string ProjectReference
 );
 
@@ -26,10 +32,16 @@ public record CreateProfileDto(
     [Required][StringLength(100)] string RoleResponsibility,
     [Required][StringLength(100)] string OfficeVenue,
     [Required][StringLength(20)] string MasteryLevel,
-    [Range(0, 50)] decimal WorkingExperience,
+    [Range(0, 50)] decimal WorkingYearsExperience,
     DateOnly JoinedDate,
     [Required][StringLength(30)] string CompanyName,
-    [Required][StringLength(200)] string Projects,
+    [Required] int ProjectsAccomplished,
+    [Url][StringLength(50)] string SeniorGuidance,
+    [Url][StringLength(50)] string ProblemSolvingFocus,
+    [Url][StringLength(50)] string TestingDebuggingSkills,
+    [Url][StringLength(50)] string ContinuousUpskilling,
+    [Url][StringLength(50)] string EmployeeWelfareExperience,
+    [Url] int WorkEnvironmentRating,
     [Url][StringLength(100)] string ProjectReference
 );
 
@@ -41,9 +53,15 @@ public record UpdateProfileDto(
     [Required][StringLength(100)] string RoleResponsibility,
     [Required][StringLength(100)] string OfficeVenue,
     [Required][StringLength(20)] string MasteryLevel,
-    [Range(0, 50)] decimal WorkingExperience,
+    [Range(0, 50)] decimal WorkingYearsExperience,
     DateOnly JoinedDate,
     [Required][StringLength(30)] string CompanyName,
-    [Required][StringLength(200)] string Projects,
+    [Required] int ProjectsAccomplished,
+    [Url][StringLength(50)] string SeniorGuidance,
+    [Url][StringLength(50)] string ProblemSolvingFocus,
+    [Url][StringLength(50)] string TestingDebuggingSkills,
+    [Url][StringLength(50)] string ContinuousUpskilling,
+    [Url][StringLength(50)] string EmployeeWelfareExperience,
+    [Url] int WorkEnvironmentRating,
     [Url][StringLength(100)] string ProjectReference
 );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { IoMdTime } from 'react-icons/io';
 import getDataById from '../../utils/getDataById';
+import { IoMdTime } from 'react-icons/io';
 import ProfileImage from "./Profile_ProfileImage.png"
 
 function GetProfile({ id })

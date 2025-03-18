@@ -9,7 +9,7 @@ public class ProfileConfiguration : IEntityTypeConfiguration<Profile>
     // Add properties and methods here
     public void Configure(EntityTypeBuilder<Profile> builder)
     {
-        builder.Property(game => game.WorkingExperience)
+        builder.Property(game => game.WorkingYearsExperience)
             .HasPrecision(3, 1);
     }
 }

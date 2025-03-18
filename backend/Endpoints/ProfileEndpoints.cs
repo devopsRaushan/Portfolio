@@ -34,10 +34,16 @@ public static class ProfileEndpoints
                 RoleResponsibility = profileDto.RoleResponsibility,
                 OfficeVenue = profileDto.OfficeVenue,
                 MasteryLevel = profileDto.MasteryLevel,
-                WorkingExperience = profileDto.WorkingExperience,
+                WorkingYearsExperience = profileDto.WorkingYearsExperience,
                 JoinedDate = profileDto.JoinedDate,
                 CompanyName = profileDto.CompanyName,
-                Projects = profileDto.Projects,
+                ProjectsAccomplished = profileDto.ProjectsAccomplished,
+                SeniorGuidance = profileDto.SeniorGuidance,
+                ProblemSolvingFocus = profileDto.ProblemSolvingFocus,
+                TestingDebuggingSkills = profileDto.TestingDebuggingSkills,
+                ContinuousUpskilling = profileDto.ContinuousUpskilling,
+                EmployeeWelfareExperience = profileDto.EmployeeWelfareExperience,
+                WorkEnvironmentRating = profileDto.WorkEnvironmentRating,
                 ProjectReference = profileDto.ProjectReference
             };
             await repository.CreateAsync(profile);
@@ -60,10 +66,16 @@ public static class ProfileEndpoints
             existingProfile.RoleResponsibility = updateProfileDto.RoleResponsibility;
             existingProfile.OfficeVenue = updateProfileDto.OfficeVenue;
             existingProfile.MasteryLevel = updateProfileDto.MasteryLevel;
-            existingProfile.WorkingExperience = updateProfileDto.WorkingExperience;
+            existingProfile.WorkingYearsExperience = updateProfileDto.WorkingYearsExperience;
             existingProfile.JoinedDate = updateProfileDto.JoinedDate;
             existingProfile.CompanyName = updateProfileDto.CompanyName;
-            existingProfile.Projects = updateProfileDto.Projects;
+            existingProfile.ProjectsAccomplished = updateProfileDto.ProjectsAccomplished;
+            existingProfile.SeniorGuidance = updateProfileDto.SeniorGuidance;
+            existingProfile.ProblemSolvingFocus = updateProfileDto.ProblemSolvingFocus;
+            existingProfile.TestingDebuggingSkills = updateProfileDto.TestingDebuggingSkills;
+            existingProfile.ContinuousUpskilling = updateProfileDto.ContinuousUpskilling;
+            existingProfile.EmployeeWelfareExperience = updateProfileDto.EmployeeWelfareExperience;
+            existingProfile.WorkEnvironmentRating = updateProfileDto.WorkEnvironmentRating;
             existingProfile.ProjectReference = updateProfileDto.ProjectReference;
 
 

@@ -12,10 +12,6 @@ public static class DataExtensions
         await dbContext.Database.MigrateAsync();
     }
 
-    /// <summary>
-    /// Dependency Injection
-    /// Adding the implementation <see cref="InMemGamesRepository"/> of that class which gets injected by their dependency <see cref="IProfilesRepository"/>, and register that implemented concrete class to the IServiceProvide which resolve and contruct the inject <see cref="InMemGamesRepository"/> the implementation as requested
-    /// </summary>
     public static IServiceCollection AddRepositories(
         this IServiceCollection services,
         IConfiguration configuration
