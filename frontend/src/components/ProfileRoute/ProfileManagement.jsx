@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DeleteProfile from './DeleteProfile';
 import getAllProfiles from '../../utils/getAllProfiles';
 
 const ProfileManagement = () =>
 {
     const [profiles, setProfiles] = useState([]);
-    const backendApi = "http://localhost:8080/profiles";
+    const backendApi = import.meta.env.VITE_BACKEND_API_URL;
 
     useEffect(() =>
     {
@@ -37,21 +36,9 @@ const ProfileManagement = () =>
             {profiles.length > 0 ? (
                 profiles.map(profile => (
                     <div key={profile.id}>
-                        <p>ID: {profile.id}</p>
-                        <p>Description: {profile.description}</p>
-                        <p>Skills Have: {profile.skillsHave}</p>
-                        <p>Softwares Used: {profile.softwaresUsed}</p>
-                        <p>Job Role: {profile.jobRole}</p>
-                        <p>Role Responsibility: {profile.roleResponsibility}</p>
-                        <p>Office Venue: {profile.officeVenue}</p>
-                        <p>Mastery Level: {profile.masteryLevel}</p>
-                        <p>Working Experience: {profile.workingExperience}</p>
-                        <p>Joined Date: {profile.joinedDate}</p>
-                        <p>Company Name: {profile.companyName}</p>
-                        <p>Projects: {profile.projects}</p>
-                        <p>Project Reference: {profile.projectReference}</p>
+                        <p>ID: {profile.id} - Name: {profile.name}</p>
                         <Link to={`/update/${profile.id}`}><button>Update Profile</button></Link>
-                        <DeleteProfile userId={profile.id} onDelete={() => handleDelete(profile.id)} />
+                        <Link to={`/delete/${profile.id}`}><button>Delete Profile</button></Link>
                     </div>
                 ))
             ) : (

@@ -1,4 +1,4 @@
-$Footer__backgroundColor: #849c8ada;
+@use 'variables' as *;
 
 .Footer {
     margin-top: 6rem;
@@ -8,7 +8,7 @@ $Footer__backgroundColor: #849c8ada;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $Footer__backgroundColor;
+    background-color: $footerBackgroundColor;
 
     &__socialMedia {
         padding-top: 1rem;

@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom';
 import updateDataById from '../../utils/updateDataById';
 import getDataById from '../../utils/getDataById';
 
-const UpdateProfile = () => {
+const UpdateProfile = () =>
+{
     const { id: userId } = useParams();
-    const backendApi = "http://localhost:8080/profiles";
+    const backendApi = import.meta.env.VITE_BACKEND_API_URL;
+
     const [formData, setFormData] = useState({
         description: "",
         skillsHave: "",
@@ -21,12 +23,16 @@ const UpdateProfile = () => {
         projectReference: ""
     });
 
-    useEffect(() => {
-        const fetchProfile = async () => {
-            try {
+    useEffect(() =>
+    {
+        const fetchProfile = async () =>
+        {
+            try
+            {
                 const data = await getDataById(userId, backendApi);
                 setFormData(data);
-            } catch (error) {
+            } catch (error)
+            {
                 console.error('Failed to fetch profile:', error);
             }
         };
@@ -34,16 +40,20 @@ const UpdateProfile = () => {
         fetchProfile();
     }, [userId]);
 
-    const handleChange = (e) => {
+    const handleChange = (e) =>
+    {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e) =>
+    {
         e.preventDefault();
-        try {
+        try
+        {
             await updateDataById(userId, backendApi, formData);
             alert('Profile updated successfully!');
-        } catch (error) {
+        } catch (error)
+        {
             console.error('Failed to update profile:', error);
             alert('Error updating profile.');
         }

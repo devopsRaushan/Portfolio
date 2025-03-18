@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import postData from '../../utils/postData';
 
-const PostProfile = () => {
-//   const backendApi = "/api";
-  const backendApi = "http://localhost:8080";
+const PostProfile = () =>
+{
+  const backendApi = import.meta.env.VITE_BACKEND_API_URL;
+
   const backendData = {
     Description: "",
     SkillsHave: "",
@@ -21,14 +22,16 @@ const PostProfile = () => {
   const [formData, setFormData] = useState(backendData);
 
   // Handling input change
-  const handleChange = (e) => {
+  const handleChange = (e) =>
+  {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // Handling form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) =>
+  {
     e.preventDefault(); // Prevents page reload
-    await postData(`${backendApi}/profiles`, formData, backendData, setFormData);
+    await postData(`${backendApi}`, formData, backendData, setFormData);
   };
 
   const renderInput = (name, type, placeholder) => (

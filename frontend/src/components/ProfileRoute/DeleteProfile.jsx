@@ -1,13 +1,23 @@
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import deleteDataById from '../../utils/deleteDataById';
 
-const DeleteProfile = ({ userId, onDelete }) => {
-    const backendApi = "http://localhost:8080/profiles";
+const DeleteProfile = ({ onDelete }) =>
+{
+    const { id: userId } = useParams();
+    const backendApi = import.meta.env.VITE_BACKEND_API_URL;
 
-    const handleDelete = async () => {
-        try {
+    const handleDelete = async () =>
+    {
+        try
+        {
             await deleteDataById(userId, backendApi);
-            onDelete();
-        } catch (error) {
+            if (onDelete)
+            {
+                onDelete();
+            }
+        } catch (error)
+        {
             console.error('Failed to delete profile:', error);
         }
     };

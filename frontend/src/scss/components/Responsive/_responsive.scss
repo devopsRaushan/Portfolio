@@ -1,4 +1,5 @@
-// mixin for width
+@use 'variables' as *;
+
 @mixin profile-styles($width: 50vw) {
     .Profile {
         width: $width;
@@ -13,19 +14,31 @@
     }
 }
 
-// mixin for flex display
 @mixin flex-profile {
     .Journey__domain--profile {
         display: flex;
     }
 }
 
-// medium and greater than
 @media (min-width: 768px) {
     @include flex-profile();
-    @include profile-styles(50vw); 
-    
+    @include profile-styles(50vw);
+
     .ProfileCards {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: 1fr .2fr;
+        row-gap: 10px;
+
+        &--item {
+            width: 50vw;
+        }
+
+        &__item--selected {
+            width: 25vw;
+
+            & select {
+                width: 50vw;
+            }
+        }
     }
 }

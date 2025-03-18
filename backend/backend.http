@@ -5,22 +5,22 @@ POST {{backend_HostAddress}}/profiles/
 Content-Type: application/json
 
 {
-    "Description": "Experienced software developer",
-    "SkillsHave": "C#, .NET, JavaScript",
-    "SoftwaresUsed": "Visual Studio, Git",
+    "Description": "Experienced full stack developer with expertise in .NET and MERN stack",
+    "SkillsHave": ".NET, C#, React, Node.js,SQL Server, MongoDB, Express.js",
+    "SoftwaresUsed": "Visual Studio, Git, Docker, Postman",
     "JobRole": "Full Stack Developer",
-    "RoleResponsibility": "Developing and maintaining web applications",
+    "RoleResponsibility": "Developing and maintaining web applications using .NET and MERN stack",
     "OfficeVenue": "Remote",
-    "MasteryLevel": "Expert",
-    "WorkingExperience": 5.5,
-    "JoinedDate": "2020-01-15",
+    "MasteryLevel": "Advanced",
+    "WorkingExperience": 5,
+    "JoinedDate": "2019-04-15",
     "CompanyName": "Tech Solutions Inc.",
-    "Projects": "Project A, Project B",
-    "ProjectReference": "https://myProjectA.com, https://myProjectB.com"
+    "Projects": "E-commerce Platform, Social Media Application",
+    "ProjectReference": "https://ecommerce.techsolutions.com, https://socialmedia.techsolutions.com"
 }
 
 ###
 GET {{backend_HostAddress}}/profiles/
 
 ###
-DELETE  {{backend_HostAddress}}/profiles/7
+DELETE  {{backend_HostAddress}}/profiles/1

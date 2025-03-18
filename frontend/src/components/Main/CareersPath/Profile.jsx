@@ -1,9 +1,28 @@
-import { RiStarSFill } from "react-icons/ri";
-import { TiTime } from "react-icons/ti";
-import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import ProfileProgressImage from "./ProfileProgressImage";
+import { useState, useEffect } from 'react';
+import getDataById from '../../../utils/getDataById';
 
-function Profile() {
+function Profile({ id }) {
+  const backendApi = import.meta.env.VITE_BACKEND_API_URL;
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const profileData = await getDataById(id, backendApi);
+        setData(profileData);
+      } catch (error) {
+        console.error('Failed to fetch profile:', error);
+      }
+    };
+
+    if (id) {
+      fetchData();
+    }
+  }, [id]);
+
+  if (!data) return <p>Loading...</p>;
+
   return (
     <div className="Profile">
       <div className="Profile--profile">
@@ -11,14 +30,7 @@ function Profile() {
           <h3>Profile</h3>
           <div className="Profile__info--container">
             <svg width="20" height="20">
-              <circle
-                cx="10"
-                cy="10.5"
-                r="7"
-                fill="transparent"
-                stroke="#ff6b6b"
-                strokeWidth="1.5"
-              />
+              <circle cx="10" cy="10.5" r="7" fill="transparent" />
             </svg>
             <div className="Profile__info--icon">i</div>
           </div>
@@ -26,24 +38,22 @@ function Profile() {
       </div>
       <ProfileProgressImage />
       <div className="Profile--items">
-        Full-stack Web Developer
-        <div>BPR Networks | Patna</div>
+        {data.jobRole}
+        <div>{data.companyName} | {data.officeVenue}</div>
       </div>
       <div className="Profile--items Achievements">
         <div className="Achievements__item">
-          <RiStarSFill className="Achievements__icon" />
+          <div className="Achievements__icon">10+</div>
         </div>
         <div className="Achievements__item">
-          <TiTime className="Achievements__icon" />
+          <div className="Achievements__icon smallFont">{data.masteryLevel}</div>
         </div>
         <div className="Achievements__item">
-          <IoCheckmarkDoneCircleOutline className="Achievements__icon" />
-        </div>
-        <div className="Achievements__item">
-          <TiTime className="Achievements__icon" />
+          <div className="Achievements__icon">{data.workingExperience}+</div>
         </div>
       </div>
     </div>
   );
 }
+
 export default Profile;

@@ -10,7 +10,7 @@ function Skills({ skillLogo, skillLogoName, skill, skillSet }) {
       </div>
 
       <div className="cards__skill--contents">
-        <span className="skill__contents--boxShadow" style={{ color: "#5c4545", fontWeight: 700 }}>{skill}</span>
+        <span className="skill__contents--boxShadow" style={{ color: "var(--ReactSkillDescriptionColor)", fontWeight: 700 }}>{skill}</span>
       </div>
 
       <div className="cards__skill--contents">
