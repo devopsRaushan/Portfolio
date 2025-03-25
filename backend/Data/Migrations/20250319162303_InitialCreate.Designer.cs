@@ -12,7 +12,7 @@ using backend.Data;
 namespace backend.Data.Migrations
 {
     [DbContext(typeof(ProfileContext))]
-    [Migration("20250318145658_InitialCreate")]
+    [Migration("20250319162303_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -35,18 +35,18 @@ namespace backend.Data.Migrations
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("ContinuousUpskilling")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("ContinuousUpskilling")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("EmployeeWelfareExperience")
                         .IsRequired()
@@ -55,8 +55,8 @@ namespace backend.Data.Migrations
 
                     b.Property<string>("JobRole")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateOnly>("JoinedDate")
                         .HasColumnType("date");
@@ -73,26 +73,26 @@ namespace backend.Data.Migrations
 
                     b.Property<string>("ProblemSolvingFocus")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ProjectReference")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("ProjectsAccomplished")
                         .HasColumnType("int");
 
                     b.Property<string>("RoleResponsibility")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("SeniorGuidance")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("SkillsHave")
                         .IsRequired()
@@ -101,13 +101,13 @@ namespace backend.Data.Migrations
 
                     b.Property<string>("SoftwaresUsed")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("TestingDebuggingSkills")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("WorkEnvironmentRating")
                         .HasColumnType("int");

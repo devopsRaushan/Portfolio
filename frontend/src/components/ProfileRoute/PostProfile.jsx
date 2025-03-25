@@ -13,14 +13,20 @@ const PostProfile = () =>
     RoleResponsibility: "",
     OfficeVenue: "",
     MasteryLevel: "",
-    WorkingExperience: "",
+    WorkingYearsExperience: "",
     JoinedDate: "",
     CompanyName: "",
-    Projects: "",
-    ProjectReference: "",
+    ProjectsAccomplished: "",
+    SeniorGuidance: "",
+    ProblemSolvingFocus: "",
+    TestingDebuggingSkills: "",
+    ContinuousUpskilling: "",
+    EmployeeWelfareExperience: "",
+    WorkEnvironmentRating: "",
+    projectReference: ""
   };
   const [formData, setFormData] = useState(backendData);
-
+  
   // Handling input change
   const handleChange = (e) =>
   {
@@ -33,11 +39,11 @@ const PostProfile = () =>
     e.preventDefault(); // Prevents page reload
     await postData(`${backendApi}`, formData, backendData, setFormData);
   };
-
+  
   const renderInput = (name, type, placeholder) => (
     <input
-      type={type}
       name={name}
+      type={type}
       value={formData[name]}
       onChange={handleChange}
       placeholder={placeholder}
@@ -56,10 +62,16 @@ const PostProfile = () =>
         {renderInput("RoleResponsibility", "text", "Enter Role Responsibility")}
         {renderInput("OfficeVenue", "text", "Enter Office Venue")}
         {renderInput("MasteryLevel", "text", "Enter Mastery Level")}
-        {renderInput("WorkingExperience", "decimal", "Enter Working Experience")}
+        {renderInput("WorkingYearsExperience", "decimal", "Enter Working Years Experience")}
         {renderInput("JoinedDate", "date", "Enter Joined Date")}
         {renderInput("CompanyName", "text", "Enter Company Name")}
-        {renderInput("Projects", "text", "Enter Projects")}
+        {renderInput("ProjectsAccomplished", "text", "Enter Projects")}
+        {renderInput("SeniorGuidance", "text", "Enter SeniorGuidance")}
+        {renderInput("ProblemSolvingFocus", "text", "Enter ProblemSolvingFocus")}
+        {renderInput("TestingDebuggingSkills", "text", "Enter TestingDebuggingSkills")}
+        {renderInput("ContinuousUpskilling", "text", "Enter ContinuousUpskilling")}
+        {renderInput("EmployeeWelfareExperience", "text", "Enter EmployeeWelfareExperience")}
+        {renderInput("WorkEnvironmentRating", "number", "Enter WorkEnvironmentRating")}
         {renderInput("ProjectReference", "text", "Enter Project Reference")}
         <button type="submit">Add Profile</button>
       </form>

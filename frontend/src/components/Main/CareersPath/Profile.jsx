@@ -49,7 +49,7 @@ function Profile({ id }) {
           <div className="Achievements__icon smallFont">{data.masteryLevel}</div>
         </div>
         <div className="Achievements__item">
-          <div className="Achievements__icon">{data.workingExperience}+</div>
+          <div className="Achievements__icon">{data.workingYearsExperience}+</div>
         </div>
       </div>
     </div>

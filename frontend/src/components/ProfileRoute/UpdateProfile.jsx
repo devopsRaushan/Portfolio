@@ -16,10 +16,16 @@ const UpdateProfile = () =>
         roleResponsibility: "",
         officeVenue: "",
         masteryLevel: "",
-        workingExperience: "",
+        workingYearsExperience: "",
         joinedDate: "",
         companyName: "",
-        projects: "",
+        ProjectsAccomplished: "",
+        SeniorGuidance: "",
+        ProblemSolvingFocus: "",
+        TestingDebuggingSkills: "",
+        ContinuousUpskilling: "",
+        EmployeeWelfareExperience: "",
+        WorkEnvironmentRating: "",
         projectReference: ""
     });
 
@@ -81,10 +87,16 @@ const UpdateProfile = () =>
                 {renderInput("roleResponsibility")}
                 {renderInput("officeVenue")}
                 {renderInput("masteryLevel")}
-                {renderInput("workingExperience", "decimal")}
+                {renderInput("workingYearsExperience", "decimal")}
                 {renderInput("joinedDate", "date")}
                 {renderInput("companyName")}
-                {renderInput("projects")}
+                {renderInput("ProjectsAccomplished")}
+                {renderInput("SeniorGuidance")}
+                {renderInput("ProblemSolvingFocus")}
+                {renderInput("TestingDebuggingSkills")}
+                {renderInput("ContinuousUpskilling")}
+                {renderInput("EmployeeWelfareExperience")}
+                {renderInput("WorkEnvironmentRating")}
                 {renderInput("projectReference")}
                 <button type="submit">Update Profile</button>
             </form>

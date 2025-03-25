@@ -6,7 +6,7 @@ public class Profile
     public int Id { get; set; }
 
     [Required]
-    [StringLength(100)]
+    [StringLength(200)]
     public required string Description { get; set; }
 
     [Required]
@@ -14,15 +14,15 @@ public class Profile
     public required string SkillsHave { get; set; }
 
     [Required]
-    [StringLength(100)]
+    [StringLength(200)]
     public required string SoftwaresUsed { get; set; }
 
     [Required]
-    [StringLength(50)]
+    [StringLength(100)]
     public required string JobRole { get; set; }
 
     [Required]
-    [StringLength(100)]
+    [StringLength(200)]
     public required string RoleResponsibility { get; set; }
 
     [Required]
@@ -38,26 +38,26 @@ public class Profile
     public DateOnly JoinedDate { get; set; }
 
     [Required]
-    [StringLength(30)]
+    [StringLength(50)]
     public required string CompanyName { get; set; }
 
     [Required]
     public required int ProjectsAccomplished { get; set; }
 
     [Required]
-    [StringLength(50)]
+    [StringLength(200)]
     public required string SeniorGuidance {get; set; }
     
     [Required]
-    [StringLength(50)]
+    [StringLength(200)]
     public required string ProblemSolvingFocus {get; set; }
 
     [Required]
-    [StringLength(50)]
+    [StringLength(200)]
     public required string TestingDebuggingSkills {get; set; }
 
     [Required]
-    [StringLength(50)]
+    [StringLength(200)]
     public required string ContinuousUpskilling {get; set; }
 
     [Required]
@@ -68,6 +68,6 @@ public class Profile
     public required int WorkEnvironmentRating {get; set; }    
 
     [Url]
-    [StringLength(100)]
+    [StringLength(200)]
     public string ProjectReference { get; set; }
 }

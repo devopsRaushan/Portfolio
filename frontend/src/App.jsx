@@ -14,7 +14,15 @@ function App()
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<><header className="Head_header"><Navbar /></header><div className="Main_container" style={{ height: "100vh" }}><Main /><main className="Main_Qualification_skillSet"><Main_2 /></main></div><footer className="Footer"><Footer /></footer></>} />
+          <Route path="/" element={
+          <>
+          <header className="Head_header"><Navbar /></header>
+          <main className="Main_container"><Main />
+            <div className="Main_Qualification_skillSet"><Main_2 /></div>
+          </main>
+          <footer className="Footer"><Footer /></footer>
+          </>
+          } />
           <Route path="/post" element={<PostProfile />} />
           <Route path="/delete" element={<ProfileManagement />} />
           <Route path="/delete/:id" element={<DeleteProfile />} />
